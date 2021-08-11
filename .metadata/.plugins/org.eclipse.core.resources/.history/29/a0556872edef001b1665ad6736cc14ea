@@ -1,0 +1,9 @@
+package com.skilldistillery.xtreme.services;
+
+import java.util.List;
+
+import com.skilldistillery.xtreme.entities.Comment;
+
+public interface CommentService {
+   List<Comment> commentsForPostId(int postId);
+}

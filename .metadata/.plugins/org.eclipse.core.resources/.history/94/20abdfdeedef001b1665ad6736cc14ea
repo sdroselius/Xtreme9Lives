@@ -1,0 +1,34 @@
+package com.skilldistillery.xtreme.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.skilldistillery.xtreme.entities.Comment;
+import com.skilldistillery.xtreme.repositories.CommentRepository;
+import com.skilldistillery.xtreme.repositories.PostRepository;
+
+@Service
+public class CommentServiceImpl implements CommentService {
+	
+	@Autowired
+	private CommentRepository commentRepo;
+	@Autowired
+	private PostRepository postRepo;
+
+	@Override
+	public List<Comment> commentsForPostId(int postId) {
+		List<Comment> comments = null;
+		if (postRepo.existsById(postId)) {
+			comments = commentRepo.findByPost_Id(postId);
+		}
+		return comments;
+	}
+
+	@Override
+	public Comment createForPostId(int postId, Comment comment) {
+		return null;
+	}
+
+}

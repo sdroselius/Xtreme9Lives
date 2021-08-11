@@ -1,0 +1,96 @@
+<jumbotron ng-hide="vm.selectedPost">loading...</jumbotron>
+
+<!-- list categories and search-->
+<div id="container" ng-hide="vm.selectedPost" >
+	<div class="row">
+		<div class="col-8">
+			<div class="dropdown" id="contentStart">
+  				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    					Filter By Category
+  				</button>
+  				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+   					 <a class="dropdown-item" ng-repeat="category in vm.categories" ng-click="vm.filterByCategory(category)">{{category.name}}</a>
+  				</div>
+			</div>
+		</div>
+		<div class="col-4">
+	  		<form class="form-inline my-2 my-lg-0">
+      			<input class="form-control mr-sm-2" type="text" placeholder="Keyword" ng-model="search.text">
+      			<button class="btn btn-outline-success my-2 my-sm-0" type="submit" ng-click="vm.searchFor(search); search = {}">
+      				Search
+      			</button>
+    			</form>
+		</div>
+	</div>
+</div>
+
+<!-- list all posts -->
+<div ng-hide="vm.selectedPost">
+	<div ng-repeat="post in vm.posts | orderBy:post.createdAt |filterPostByCategory:vm.selectedCategory" ng-click="vm.selectPost(post)" class="card">
+	 <div class="card-body">
+	    <div>
+	    		<span class="card-title" >{{post.title}}</span><span class="category">{{post.brand}}</span>
+	    </div>
+		<p class="card-text">{{post.category.name}}</p>
+	 </div>
+	</div>
+</div>
+
+<div ng-show="vm.searchResults">
+	<button ng-click="vm.showAll()" class="btn btn-primary">Show All Posts</button>
+</div>
+
+<!-- deltain view of a posts -->
+<div ng-show="vm.selectedPost" class="postDetails">
+	<div class="">
+		<div class="row">
+			<div class="col-10">
+				<h4>{{vm.selectedPost.title}} ({{vm.selectedPost.category.name}}) - {{vm.selectedPost.price | currency}} </h4>
+			</div>
+			<div class= "col-2" ng-hide="vm.selectedPost.id <= 90">
+				<button class="button btn-danger" ng-click="vm.deletePost(vm.selectedPost.id)">Delete Post</button>
+			</div>
+		</div>
+	</div>	
+
+    <h6>{{vm.selectedPost.brand}}</h6>
+	<label>Post Date: </label><span> {{vm.selectedPost.createdAt}}</span>
+
+	<p>{{vm.selectedPost.description}}</p>
+
+	<img ng-hide= "!vm.selectedPost.imageUrl" class="postImage" src="{{vm.selectedPost.imageUrl}}">
+	
+	<hr>
+	<h5>Contact {{vm.selectedPost.name}} for bookings</h5>
+	<p>Email: {{vm.selectedPost.email}}</p>
+	<hr>
+	
+	<button class="button btn-primary" ng-click="vm.returnToListView()">Back</button>
+	
+	<br>
+	<br>
+	
+	<h4><em>Comments</em></h4>
+	<div class="container">
+		<div ng-repeat="comment in vm.comments" class="card row">
+			<span class="commentcolTitle col-md-4">{{comment.name}}</span>
+			<span class="commentcol col-md-7">{{comment.content}}</span>
+		    <button class="btn btn-danger delete" ng-click="vm.deleteComment(comment.id)">X</button>
+	</div>
+	
+	<div>
+		<h5><em>Leave a comment</em></h5>
+		
+		<form width="60%" class="container">
+		  <div class="form-group">
+		    <label>Name</label>
+		    <input type="text" class="form-control" ng-model="comment.name">
+		  </div>
+		  <div class="form-group">
+		    <label>Content</label>
+		    <input type="text" class="form-control"  ng-model="comment.content">
+		  </div>
+		  <button type="submit" class="btn btn-primary" ng-click="vm.addComment(vm.selectedPost.id, comment); comment={}">Submit</button>
+		</form>
+	</div>
+</div>

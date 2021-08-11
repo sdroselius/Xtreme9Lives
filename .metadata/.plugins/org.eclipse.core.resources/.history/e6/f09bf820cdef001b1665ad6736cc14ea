@@ -1,0 +1,15 @@
+package com.skilldistillery.xtreme.services;
+
+import java.util.List;
+
+import com.skilldistillery.xtreme.entities.Category;
+
+public class CategoryServiceImpl implements CategoryService {
+
+	@Override
+	public List<Category> allCategories() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

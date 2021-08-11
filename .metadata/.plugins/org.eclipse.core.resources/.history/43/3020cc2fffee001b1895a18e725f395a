@@ -1,0 +1,66 @@
+package com.skilldistillery.xtreme.controllers;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.skilldistillery.xtreme.data.PostDAO;
+import com.skilldistillery.xtreme.entities.Post;
+
+@RequestMapping("api")
+@RestController
+public class PostController {
+
+	@Autowired
+	private PostDAO postDao;
+	
+	@GetMapping("ping")
+	public String ping() {
+		return "pong";
+	}
+	
+//	List<Post>	GET api/posts	Gets all posts
+	
+	@GetMapping("posts")
+	public List<Post> index() {
+		return postDao.findAll();
+	}
+	
+//	Post	GET api/posts/{id}	Gets one post by id
+	
+	@GetMapping("posts/{postId}")
+	public Post show(
+			@PathVariable Integer postId,
+			HttpServletResponse res
+	) {
+		Post post = postDao.findById(postId);
+		if (post == null) {
+			res.setStatus(404);
+		}
+		return post;
+	}
+	
+//	Post	POST api/posts	Creates a new post
+	
+	@PostMapping("posts")
+	public Post createPost(@RequestBody Post post) {
+		try {
+			postDao.create(post);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return post;
+	}
+	
+//	Post	PUT api/posts/{id}	Replaces an existing post by id
+//	void	DELETE api/posts/{id}	Deletes an existing post by id
+}

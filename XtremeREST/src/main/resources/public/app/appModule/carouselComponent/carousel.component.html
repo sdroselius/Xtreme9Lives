@@ -1,0 +1,9 @@
+<div>
+  <div style="height: 305px">
+    <div uib-carousel active="vm.active" interval="vm.myInterval" no-wrap="vm.noWrapSlides">
+      <div uib-slide ng-repeat="slide in vm.slides track by slide.id" index="slide.id">
+        <img ng-src="{{slide.image}}" style="margin:auto;">
+      </div>
+    </div>
+  </div>
+</div>

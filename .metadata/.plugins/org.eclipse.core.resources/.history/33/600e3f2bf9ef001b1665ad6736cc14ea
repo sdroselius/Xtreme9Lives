@@ -1,0 +1,37 @@
+package com.skilldistillery.xtreme.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.skilldistillery.xtreme.entities.Post;
+import com.skilldistillery.xtreme.repositories.CategoryRepository;
+import com.skilldistillery.xtreme.repositories.PostRepository;
+
+@Service
+public class PostServiceImpl implements PostService {
+
+	@Autowired
+	private PostRepository postRepo;
+	
+	@Autowired
+	private CategoryRepository catRepo;
+
+	@Override
+	public List<Post> getPostsForCategoryId(int catId) {
+		if (catRepo.existsById(catId)) {
+		  return postRepo.findByCategory_Id(catId);
+		}
+		else {
+			return null;
+		}
+	}
+
+	@Override
+	public List<Post> searchByNameTitle(String keyword) {
+		keyword = "%" + keyword + "%";
+		return postRepo.findByNameLikeOrTitleLike(keyword, keyword);
+	}
+	
+}
