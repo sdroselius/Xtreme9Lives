@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="CategoryTest" project="XtremeJPA" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="com.skilldistillery.xtreme.entities.CategoryTest" time="0.038" displayname="CategoryTest" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.xtreme.entities.CategoryTest]">
-    <testcase name="test_Category_entity_mapping" classname="com.skilldistillery.xtreme.entities.CategoryTest" time="0.038" displayname="test_Category_entity_mapping()" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.xtreme.entities.CategoryTest]/[method:test_Category_entity_mapping()]"/>
-  </testsuite>
-</testrun>

@@ -1,7 +1,0 @@
-package com.skilldistillery.xtreme.data;
-
-import java.util.List;
-
-public interface PostDAO {
-	List<Post> findAll();
-}

@@ -1,9 +1,0 @@
-package com.skilldistillery.xtreme.entities;
-
-public class Category {
-	
-	private int id;
-	
-	private String name;
-
-}

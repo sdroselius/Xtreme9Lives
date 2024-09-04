@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="PostTest" project="XtremeJPA" tests="3" started="3" failures="0" errors="0" ignored="0">
-  <testsuite name="com.skilldistillery.xtreme.entities.PostTest" time="0.114" displayname="PostTest" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.xtreme.entities.PostTest]">
-    <testcase name="test_Post_entity_mapping" classname="com.skilldistillery.xtreme.entities.PostTest" time="0.073" displayname="test_Post_entity_mapping()" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.xtreme.entities.PostTest]/[method:test_Post_entity_mapping()]"/>
-    <testcase name="test_Post_Category_ManyToOne_mapping" classname="com.skilldistillery.xtreme.entities.PostTest" time="0.007" displayname="test_Post_Category_ManyToOne_mapping()" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.xtreme.entities.PostTest]/[method:test_Post_Category_ManyToOne_mapping()]"/>
-    <testcase name="test_Post_Comment_OneToMany_mapping" classname="com.skilldistillery.xtreme.entities.PostTest" time="0.034" displayname="test_Post_Comment_OneToMany_mapping()" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.xtreme.entities.PostTest]/[method:test_Post_Comment_OneToMany_mapping()]"/>
-  </testsuite>
-</testrun>

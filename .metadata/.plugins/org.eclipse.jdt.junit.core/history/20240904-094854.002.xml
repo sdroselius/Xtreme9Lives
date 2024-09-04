@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="PostTest" project="XtremeJPA" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="com.skilldistillery.xtreme.entities.PostTest" time="0.055" displayname="PostTest" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.xtreme.entities.PostTest]">
-    <testcase name="test_Post_entity_mapping" classname="com.skilldistillery.xtreme.entities.PostTest" time="0.055" displayname="test_Post_entity_mapping()" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.xtreme.entities.PostTest]/[method:test_Post_entity_mapping()]"/>
-  </testsuite>
-</testrun>
