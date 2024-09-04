@@ -1,0 +1,44 @@
+<h2>Post your adventure</h2>
+
+<form class="container">
+  <div class="form-group">
+    <label>Category</label>
+    <select class="form-control"  ng-model="newpost.category">
+		<option ng-repeat="category in vm.categories" value="{{category.name}}">
+			{{category.name}}
+		</option>
+    </select>
+  </div>
+	
+  <div class="form-group">
+    <label>Title</label>
+    <input type="text" class="form-control" placeholder="Post title" ng-model="newpost.title">
+  </div>
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" class="form-control" placeholder="Name" ng-model="newpost.name">
+  </div>
+  <div class="form-group">
+    <label>Company</label>
+    <input type="text" class="form-control" placeholder="Company" ng-model="newpost.brand">
+  </div>
+  <div class="form-group">
+    <label>Email</label>
+    <input type="text" class="form-control" placeholder="Contact Email" ng-model="newpost.email">
+  </div>
+  <div class="form-group">
+    <label>Price</label>
+    <input type="text" class="form-control" placeholder="Price" ng-model="newpost.price">
+  </div>
+  <div class="form-group">
+    <label>Image URL</label>
+    <input type="text" class="form-control" placeholder="Image Url" ng-model="newpost.imageUrl">
+  </div>
+  
+   <div class="form-group">
+    <label>Description</label>
+    <textarea class="form-control" placeholder="Description" rows="5" ng-model="newpost.description"></textarea>
+  </div>
+		
+  <button type="submit" class="btn btn-primary" ng-click="vm.submitPost(newpost)">Create Post</button>
+</form>
